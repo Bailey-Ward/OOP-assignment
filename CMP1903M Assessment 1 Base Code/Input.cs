@@ -29,7 +29,7 @@ namespace CMP1903M_Assessment_1_Base_Code
                 }
                 else
                 {
-                    this.textInput.Add(text)
+                    this.textInput.Add(text);
                 }
             }
             while (text.EndsWith("*"));
@@ -42,7 +42,7 @@ namespace CMP1903M_Assessment_1_Base_Code
         //Gets text input from a .txt file
         public string FileTextInput(string fileName)
         {
-            return textList;
+            return textInput;
         }
 
     }

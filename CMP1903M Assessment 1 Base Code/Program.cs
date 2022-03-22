@@ -13,17 +13,18 @@ namespace CMP1903M_Assessment_1_Base_Code
         {
             //Local list of integers to hold the first five measurements of the text
             List<int> parameters = new List<int>();
+            List<string> textList;
 
             //Create 'Input' object
             //Get either manually entered text, or text from a file
-            bool valid;
-            Input choice = new Input();
-
-            do
+            
+            Input option = new Input();
+            bool Menu = true;
+            while (Menu)
             {
-                Console.WriteLine("Input 1 for keyboard input:\t Input 2 for text file:\t Input 0 to exit the program:")
-                
+                Menu = MainMenu(option);
             }
+
 
             //Create an 'Analyse' object
             //Pass the text input to the 'analyseText' method
@@ -37,6 +38,30 @@ namespace CMP1903M_Assessment_1_Base_Code
 
             //TO ADD: Get the frequency of individual letters?
 
+
+        }
+
+        private static bool MainMenu(Input option)
+        {
+            Console.Clear();
+            Console.WriteLine("Choose an option:");
+            Console.WriteLine("Type 1 to select keyboard input:\n Type 2 to read from text file:\n Type 3 to exit the program:");
+
+            switch (Console.ReadLine())
+            {
+                case "1":
+                    textList = option.ManualTextInput();
+                    foreach (string s in textList)
+                    {
+                        Console.WriteLine(s);
+                    }
+                    break;
+                case "2":
+                    option.FileTextInput("Filename");
+                    break;
+                case "3":
+                    break;
+            }
 
         }
 
