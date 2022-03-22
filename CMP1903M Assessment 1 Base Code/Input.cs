@@ -42,6 +42,10 @@ namespace CMP1903M_Assessment_1_Base_Code
         //Gets text input from a .txt file
         public string FileTextInput(string fileName)
         {
+            using (var reader = new StreamReader(fileName))
+            {
+                textInput = reader.ReadToEnd();
+            }
             return textInput;
         }
 

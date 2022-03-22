@@ -19,10 +19,33 @@ namespace CMP1903M_Assessment_1_Base_Code
             //Get either manually entered text, or text from a file
             
             Input option = new Input();
-            bool Menu = true;
-            while (Menu)
+            string emptyString ="";
+
+            while(true)
             {
-                Menu = MainMenu(option);
+                Console.Clear();
+                Console.WriteLine("Choose an option:");
+                Console.WriteLine("Type 1 to select keyboard input:\n Type 2 to read from text file:\n Type 3 to exit the program:");
+                string choice = Console.ReadLine();
+                if(choice == "1")
+                {
+                    Console.WriteLine("Enter the text to be analysed:");
+                    emptyString = option.ManualTextInput();
+                }
+                else if(choice == "2")
+                {
+                    Console.WriteLine("Enter the file path here:");
+                    emptyString = option.FileTextInput(Console.ReadLine());
+                }
+                else if (choice == "3")
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid input, enter a number between 1 and 3:")
+                    continue;
+                }
             }
 
 
@@ -43,9 +66,7 @@ namespace CMP1903M_Assessment_1_Base_Code
 
         private static bool MainMenu(Input option)
         {
-            Console.Clear();
-            Console.WriteLine("Choose an option:");
-            Console.WriteLine("Type 1 to select keyboard input:\n Type 2 to read from text file:\n Type 3 to exit the program:");
+            
 
             switch (Console.ReadLine())
             {
