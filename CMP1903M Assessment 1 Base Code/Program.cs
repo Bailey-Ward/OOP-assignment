@@ -16,7 +16,14 @@ namespace CMP1903M_Assessment_1_Base_Code
 
             //Create 'Input' object
             //Get either manually entered text, or text from a file
+            bool valid;
             Input choice = new Input();
+
+            do
+            {
+                Console.WriteLine("Input 1 for keyboard input:\t Input 2 for text file:\t Input 0 to exit the program:")
+                
+            }
 
             //Create an 'Analyse' object
             //Pass the text input to the 'analyseText' method
