@@ -18,7 +18,9 @@ namespace CMP1903M_Assessment_1_Base_Code
             //Create 'Input' object
             //Get either manually entered text, or text from a file
             
-            Input option = new Input();
+            Input input = new Input();
+            Report report = new Report();
+            Analyse analyse = new Analyse();
             string emptyString ="";
 
             while(true)
@@ -30,12 +32,12 @@ namespace CMP1903M_Assessment_1_Base_Code
                 if(choice == "1")
                 {
                     Console.WriteLine("Enter the text to be analysed:");
-                    emptyString = option.ManualTextInput();
+                    Input.manualTextInput();
                 }
                 else if(choice == "2")
                 {
                     Console.WriteLine("Enter the file path here:");
-                    emptyString = option.FileTextInput(Console.ReadLine());
+                    emptyString = Input.FileTextInput(Console.ReadLine());
                 }
                 else if (choice == "3")
                 {

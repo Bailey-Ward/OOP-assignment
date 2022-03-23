@@ -11,7 +11,7 @@ namespace CMP1903M_Assessment_1_Base_Code
 
         //Handles the text input for Assessment 1
         string text = " ";
-        List<string> textInput = new List<string>();
+        Report textReport = new Report();
 
         //Method: manualTextInput
         //Arguments: none
@@ -19,21 +19,12 @@ namespace CMP1903M_Assessment_1_Base_Code
         //Gets text input from the keyboard
         public List<string> ManualTextInput()
         {
-            do
-            {
-                Console.WriteLine("Enter a sentence or press * to finish: ");
-                text = Console.ReadLine();
-                if (text == "")
-                {
-                    Console.WriteLine("You forgot to enter the sentence!");
-                }
-                else
-                {
-                    this.textInput.Add(text);
-                }
-            }
-            while (text.EndsWith("*"));
-            return textInput;
+
+            Console.WriteLine("Enter a sentence or press * to finish: ");
+            text = Console.ReadLine();
+            Console.WriteLine("\n");
+            return text
+
         }
 
         //Method: fileTextInput
