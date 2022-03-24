@@ -10,7 +10,7 @@ namespace CMP1903M_Assessment_1_Base_Code
     {
 
         //Handles the text input for Assessment 1
-        string text = " ";
+        string text = "nothing";
         Report textReport = new Report();
 
         //Method: manualTextInput
@@ -23,7 +23,7 @@ namespace CMP1903M_Assessment_1_Base_Code
             Console.WriteLine("Enter a sentence or press * to finish: ");
             text = Console.ReadLine();
             Console.WriteLine("\n");
-            return text
+            return text;
 
         }
 

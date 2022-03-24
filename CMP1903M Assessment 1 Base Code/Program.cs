@@ -66,27 +66,6 @@ namespace CMP1903M_Assessment_1_Base_Code
 
         }
 
-        private static bool MainMenu(Input option)
-        {
-            
-
-            switch (Console.ReadLine())
-            {
-                case "1":
-                    textList = option.ManualTextInput();
-                    foreach (string s in textList)
-                    {
-                        Console.WriteLine(s);
-                    }
-                    break;
-                case "2":
-                    option.FileTextInput("Filename");
-                    break;
-                case "3":
-                    break;
-            }
-
-        }
 
 
 
