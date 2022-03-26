@@ -50,6 +50,17 @@ namespace CMP1903M_Assessment_1_Base_Code
                 }
             }
 
+            int sentenceCounter = report.sentenceCounter(values);
+            int vowelCounter = report.vowelCounter(values);
+            int consonantCounter = report.consonantCounter(values);
+            int upperCounter = report.upperCounter(values);
+            int lowerCounter = report.lowerCounter(values);
+
+            Console.WriteLine("There are: "+ sentenceCounter + "sentences." );
+            Console.WriteLine("There are: "+ vowelCounter + "vowels.");
+            Console.WriteLine("There are: "+ consonantCounter + "consonants.");
+            Console.WriteLine("There are: "+ upperCounter + "upper case characters.");
+            Console.WriteLine("There are: "+ lowerCounter + "lower case characters");
 
             //Create an 'Analyse' object
             //Pass the text input to the 'analyseText' method

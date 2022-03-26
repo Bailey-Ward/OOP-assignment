@@ -21,7 +21,7 @@ namespace CMP1903M_Assessment_1_Base_Code
         {
 
             Console.WriteLine("Enter a sentence or press * to finish: ");
-            text = Console.ReadLine();
+            string text = Console.ReadLine();
             Console.WriteLine("\n");
             return text;
 
@@ -33,11 +33,8 @@ namespace CMP1903M_Assessment_1_Base_Code
         //Gets text input from a .txt file
         public string FileTextInput(string fileName)
         {
-            using (var reader = new StreamReader(fileName))
-            {
-                textInput = reader.ReadToEnd();
-            }
-            return textInput;
+            string text = File.ReadAllText("filename.txt");
+            return text;
         }
 
     }

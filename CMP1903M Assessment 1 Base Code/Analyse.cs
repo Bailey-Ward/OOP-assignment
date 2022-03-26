@@ -36,10 +36,16 @@ namespace CMP1903M_Assessment_1_Base_Code
             }
 
             // Sentence checker
-            string[] sentence = input.Split('.', '?', '!');
-            Console.WriteLine("There are" + (sentence.Length-1) + "sentences in the text");
-            values[0] = (sentence.Length-1);
-
+            int sentence = 0;
+            var sentenceSeparater = new List<char> {'!', ',', '?', '.' }
+            for (int i = 0; i < input.Length; i++)
+            {
+                if (sentenceSeparater.Contains(input[i]))
+                {
+                    sentence++;
+                }
+            }
+            values[0] = sentence;
             // Vowel checker
             int vowel = 0;
             var vowelList = new List<char> {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'};
@@ -51,6 +57,7 @@ namespace CMP1903M_Assessment_1_Base_Code
                     }
             }
             values[1] = vowel;
+
             // Consonants checker
             int consonant = 0;
             var consonantList = new List<char> {'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z', 'B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Y', 'Z' };
@@ -62,6 +69,7 @@ namespace CMP1903M_Assessment_1_Base_Code
                 }
             }
             values[2] = consonant;
+
             // Upper case checker
             int upper = 0;
             for(int i = 0; i<input.Length; i++)
@@ -72,6 +80,7 @@ namespace CMP1903M_Assessment_1_Base_Code
                 }
             }
             values[3] = upper;
+
             // Lower case checker
             int lower = 0;
             for (int i = 0; i<input.Length; i++)
@@ -83,6 +92,11 @@ namespace CMP1903M_Assessment_1_Base_Code
             }
             values[4] = lower;
             return values;
+
+            //Long word checker
+
         }
+            
+        
     }
 }
