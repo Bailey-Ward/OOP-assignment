@@ -19,10 +19,15 @@ namespace CMP1903M_Assessment_1_Base_Code
         //Gets text input from the keyboard
         public string ManualTextInput()
         {
-                    Console.WriteLine("Enter a sentence or press * to finish: ");
-                    string text = Console.ReadLine();
-                    Console.WriteLine("\n");
-                    return text;
+            string text = "";
+            do
+            {
+                Console.WriteLine("Enter a sentence or press * to finish: ");
+                text = Console.ReadLine();
+                Console.WriteLine("\n");
+                return text;
+            }
+            while (!text.EndsWith("*"));
         }
 
         //Method: fileTextInput
