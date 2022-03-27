@@ -13,7 +13,7 @@ namespace CMP1903M_Assessment_1_Base_Code
         {
             //Local list of integers to hold the first five measurements of the text
             List<int> values = null;
-            string input = ("nothing");
+
 
             //Create 'Input' object
             //Get either manually entered text, or text from a file
@@ -27,7 +27,7 @@ namespace CMP1903M_Assessment_1_Base_Code
                 Console.WriteLine("Choose an option:");
                 Console.WriteLine("Type 1 to select keyboard input:\n Type 2 to read from text file:\n Type 3 to exit the program:");
                 string choice = Console.ReadLine();
-                string emptyString;
+                List<string> emptyString;
                 if (choice == "1")
                 {
                     Console.WriteLine("Enter the text to be analysed:");
@@ -37,7 +37,6 @@ namespace CMP1903M_Assessment_1_Base_Code
                 }
                 else if (choice == "2")
                 {
-                    Console.WriteLine("Enter the file path here:");
                     emptyString = inputText.FileTextInput();
                     values = analyse.AnalyseText(emptyString);
                     break;
@@ -59,11 +58,11 @@ namespace CMP1903M_Assessment_1_Base_Code
             int upperCounter = report.UpperCounter(values);
             int lowerCounter = report.LowerCounter(values);
 
-            Console.WriteLine("There are: "+ sentenceCounter + "sentences." );
-            Console.WriteLine("There are: "+ vowelCounter + "vowels.");
-            Console.WriteLine("There are: "+ consonantCounter + "consonants.");
-            Console.WriteLine("There are: "+ upperCounter + "upper case characters.");
-            Console.WriteLine("There are: "+ lowerCounter + "lower case characters");
+            Console.WriteLine("There are: "+ sentenceCounter + " sentences." );
+            Console.WriteLine("There are: "+ vowelCounter + " vowels.");
+            Console.WriteLine("There are: "+ consonantCounter + " consonants.");
+            Console.WriteLine("There are: "+ upperCounter + " upper case characters.");
+            Console.WriteLine("There are: "+ lowerCounter + " lower case characters");
 
             //Create an 'Analyse' object
             //Pass the text input to the 'analyseText' method

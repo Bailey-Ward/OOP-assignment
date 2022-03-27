@@ -9,35 +9,39 @@ namespace CMP1903M_Assessment_1_Base_Code
 {
     public class Input
     {
-
+        
         //Handles the text input for Assessment 1
-
+        List<string> textList = new List<string>();
+        string text = "";
 
         //Method: manualTextInput
         //Arguments: none
         //Returns: string
         //Gets text input from the keyboard
-        public string ManualTextInput()
+        public List<string> ManualTextInput()
         {
-            string text = "";
+            
+            
             do
             {
                 Console.WriteLine("Enter a sentence or press * to finish: ");
                 text = Console.ReadLine();
                 Console.WriteLine("\n");
-                return text;
+                this.textList.Add(text);
+                
             }
             while (!text.EndsWith("*"));
+            return textList;
         }
 
         //Method: fileTextInput
         //Arguments: string (the file path)
         //Returns: string
         //Gets text input from a .txt file
-        public string FileTextInput()
+        public List<string> FileTextInput()
         {
             string text = File.ReadAllText("textAnalysis.txt");
-            return text;
+            return textList;
         }
 
     }
