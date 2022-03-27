@@ -12,32 +12,35 @@ namespace CMP1903M_Assessment_1_Base_Code
         static void Main()
         {
             //Local list of integers to hold the first five measurements of the text
-            List<int> parameters = new List<int>();
-            List<string> textList;
+            List<int> values = null;
+            string input = ("nothing");
 
             //Create 'Input' object
             //Get either manually entered text, or text from a file
             
-            Input input = new Input();
+            Input inputText = new Input();
             Report report = new Report();
             Analyse analyse = new Analyse();
-            string emptyString ="";
-
-            while(true)
+            while (true)
             {
                 Console.Clear();
                 Console.WriteLine("Choose an option:");
                 Console.WriteLine("Type 1 to select keyboard input:\n Type 2 to read from text file:\n Type 3 to exit the program:");
                 string choice = Console.ReadLine();
-                if(choice == "1")
+                string emptyString;
+                if (choice == "1")
                 {
                     Console.WriteLine("Enter the text to be analysed:");
-                    Input.manualTextInput();
+                    emptyString = inputText.ManualTextInput();
+                    values = analyse.AnalyseText(emptyString);
+                    break;
                 }
-                else if(choice == "2")
+                else if (choice == "2")
                 {
                     Console.WriteLine("Enter the file path here:");
-                    emptyString = Input.FileTextInput(Console.ReadLine());
+                    emptyString = inputText.FileTextInput();
+                    values = analyse.AnalyseText(emptyString);
+                    break;
                 }
                 else if (choice == "3")
                 {
@@ -45,16 +48,16 @@ namespace CMP1903M_Assessment_1_Base_Code
                 }
                 else
                 {
-                    Console.WriteLine("Invalid input, enter a number between 1 and 3:")
+                    Console.WriteLine("Invalid input, enter a number between 1 and 3:");
                     continue;
                 }
             }
 
-            int sentenceCounter = report.sentenceCounter(values);
-            int vowelCounter = report.vowelCounter(values);
-            int consonantCounter = report.consonantCounter(values);
-            int upperCounter = report.upperCounter(values);
-            int lowerCounter = report.lowerCounter(values);
+            int sentenceCounter = report.SentenceCounter(values);
+            int vowelCounter = report.VowelCounter(values);
+            int consonantCounter = report.ConsonantCounter(values);
+            int upperCounter = report.UpperCounter(values);
+            int lowerCounter = report.LowerCounter(values);
 
             Console.WriteLine("There are: "+ sentenceCounter + "sentences." );
             Console.WriteLine("There are: "+ vowelCounter + "vowels.");

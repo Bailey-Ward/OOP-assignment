@@ -14,7 +14,7 @@ namespace CMP1903M_Assessment_1_Base_Code
         //Arguments: string
         //Returns: list of integers
         //Calculates and returns an analysis of the text
-        public List<int> analyseText(string input)
+        public List<int> AnalyseText(string input)
         {
             //List of integers to hold the first five measurements:
 
@@ -37,7 +37,7 @@ namespace CMP1903M_Assessment_1_Base_Code
 
             // Sentence checker
             int sentence = 0;
-            var sentenceSeparater = new List<char> {'!', ',', '?', '.' }
+            var sentenceSeparater = new List<char> { '!', ',', '?', '.' };
             for (int i = 0; i < input.Length; i++)
             {
                 if (sentenceSeparater.Contains(input[i]))
