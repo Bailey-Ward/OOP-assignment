@@ -14,7 +14,7 @@ namespace CMP1903M_Assessment_1_Base_Code
         //Arguments: string
         //Returns: list of integers
         //Calculates and returns an analysis of the text
-        public List<int> AnalyseText(string input)
+        public List<int> AnalyseText(List<string> input)
         {
             //List of integers to hold the first five measurements:
 
@@ -35,12 +35,20 @@ namespace CMP1903M_Assessment_1_Base_Code
                 values.Add(0);
             }
 
+            string words = "";
+
+            foreach(string s in input)
+            {
+                words+= s;
+            }
+
+            
             // Sentence checker
             int sentence = 0;
             var sentenceSeparater = new List<char> { '!', ',', '?', '.' };
-            for (int i = 0; i < input.Length; i++)
+            for (int i = 0; i < words.Length; i++)
             {
-                if (sentenceSeparater.Contains(input[i]))
+                if (sentenceSeparater.Contains(words[i]))
                 {
                     sentence++;
                 }
@@ -49,9 +57,9 @@ namespace CMP1903M_Assessment_1_Base_Code
             // Vowel checker
             int vowel = 0;
             var vowelList = new List<char> {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'};
-            for (int i = 0; i < input.Length; i++)
+            for (int i = 0; i < words.Length; i++)
             {
-                if (vowelList.Contains(input[i]))
+                if (vowelList.Contains(words[i]))
                     {
                     vowel++;
                     }
@@ -61,9 +69,9 @@ namespace CMP1903M_Assessment_1_Base_Code
             // Consonants checker
             int consonant = 0;
             var consonantList = new List<char> {'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z', 'B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Y', 'Z' };
-            for(int i = 0; i< input.Length; i++)
+            for(int i = 0; i< words.Length; i++)
             {
-                if (consonantList.Contains(input[i]))
+                if (consonantList.Contains(words[i]))
                 {
                     consonant++;
                 }
@@ -72,9 +80,9 @@ namespace CMP1903M_Assessment_1_Base_Code
 
             // Upper case checker
             int upper = 0;
-            for(int i = 0; i<input.Length; i++)
+            for(int i = 0; i<words.Length; i++)
             {
-                if(char.IsUpper(input[i]))
+                if(char.IsUpper(words[i]))
                 {
                     upper++;
                 }
@@ -83,9 +91,9 @@ namespace CMP1903M_Assessment_1_Base_Code
 
             // Lower case checker
             int lower = 0;
-            for (int i = 0; i<input.Length; i++)
+            for (int i = 0; i<words.Length; i++)
             {
-                if(char.IsLower(input[i]))
+                if(char.IsLower(words[i]))
                 {
                     lower++;
                 }
@@ -94,6 +102,16 @@ namespace CMP1903M_Assessment_1_Base_Code
             return values;
 
             //Long word checker
+            public List<string> LongWordChecker(string input)
+            {
+                int size = 7;
+                string longWords = "";
+
+                for (int i = 0; i < words.Length; i++)
+                {
+                    if
+                }
+            }
 
         }
             
