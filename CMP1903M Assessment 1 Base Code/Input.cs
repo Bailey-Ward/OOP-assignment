@@ -21,7 +21,7 @@ namespace CMP1903M_Assessment_1_Base_Code
         public List<string> ManualTextInput()
         {
             
-            
+            //Do While loop to keep taking input until an "*" is entered
             do
             {
                 Console.WriteLine("Enter a sentence or press * to finish: ");
@@ -38,10 +38,22 @@ namespace CMP1903M_Assessment_1_Base_Code
         //Arguments: string (the file path)
         //Returns: string
         //Gets text input from a .txt file
+        
         public List<string> FileTextInput()
         {
-            string text = File.ReadAllText("textAnalysis.txt");
-            return textList;
+            //Try Catch to handle any errors relating to file location
+            try
+            {
+                string text = File.ReadAllText("textAnalysis.txt");
+                this.textList.Add(text);
+                return textList;
+            }
+            catch
+            {
+                Console.WriteLine("File could not be found");
+                Environment.Exit(0);
+                return null;
+            }
         }
 
     }

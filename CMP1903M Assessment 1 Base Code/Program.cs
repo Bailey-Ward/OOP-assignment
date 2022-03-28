@@ -18,9 +18,12 @@ namespace CMP1903M_Assessment_1_Base_Code
             //Create 'Input' object
             //Get either manually entered text, or text from a file
             
+            // New Objects created below
             Input inputText = new Input();
             Report report = new Report();
             Analyse analyse = new Analyse();
+
+            //Main menu
             while (true)
             {
                 Console.Clear();

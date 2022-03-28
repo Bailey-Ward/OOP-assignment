@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace CMP1903M_Assessment_1_Base_Code
@@ -9,6 +11,42 @@ namespace CMP1903M_Assessment_1_Base_Code
     public class Analyse
     {
         //Handles the analysis of text
+        private void LongWordChecker(List<String> sentences)
+        {
+            List<String> longWords = new List<string>();
+            foreach (string sentence in sentences)
+            {
+                string cleanSentences = Regex.Replace(sentence, "[^A-Za-z0-9 ]", "");
+                string[] words = cleanSentences.Split(' ');
+                foreach (string word in words) { if (word.Count() >= 7) { longWords.Add(word); } }
+            }
+            string fileName = System.AppContext.BaseDirectory + "long_words.txt";
+
+            try
+            {
+                // Performs a check to see if the file containing long words already exists, if it does it deletes it    
+                if (File.Exists(fileName))
+                {
+                    File.Delete(fileName);
+                }
+
+                // Creates the new file     
+                using (FileStream fs = File.Create(fileName))
+                {
+                    // Adds the long words to the created file
+                    foreach (string longWord in longWords)
+                    {
+                        Byte[] title = new UTF8Encoding(true).GetBytes(longWord + ", ");
+                        fs.Write(title, 0, title.Length);
+                    }
+                }
+                Console.WriteLine($"{fileName} has been created.");
+            }
+            catch (Exception Ex)
+            {
+                Console.WriteLine(Ex.ToString());
+            }
+        }
 
         //Method: analyseText
         //Arguments: string
@@ -16,18 +54,6 @@ namespace CMP1903M_Assessment_1_Base_Code
         //Calculates and returns an analysis of the text
         public List<int> AnalyseText(List<string> input)
         {
-            //List of integers to hold the first five measurements:
-
-            //1. Number of sentences
-            
-            //2. Number of vowels
-
-            //3. Number of consonants
-
-            //4. Number of upper case letters
-
-            //5. Number of lower case letters
-
             List<int> values = new List<int>();
             //Initialise all the values in the list to '0'
             for (int i = 0; i < 5; i++)
@@ -99,19 +125,11 @@ namespace CMP1903M_Assessment_1_Base_Code
                 }
             }
             values[4] = lower;
+            LongWordChecker(input);
             return values;
 
-            //Long word checker
-            public List<string> LongWordChecker(string input)
-            {
-                int size = 7;
-                string longWords = "";
-
-                for (int i = 0; i < words.Length; i++)
-                {
-                    if
-                }
-            }
+            
+            
 
         }
             
