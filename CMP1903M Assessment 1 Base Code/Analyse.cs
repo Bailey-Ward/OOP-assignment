@@ -11,6 +11,7 @@ namespace CMP1903M_Assessment_1_Base_Code
     public class Analyse
     {
         //Handles the analysis of text
+        //encapsulation used here
         private void LongWordChecker(List<String> sentences)
         {
             List<String> longWords = new List<string>();
@@ -22,6 +23,7 @@ namespace CMP1903M_Assessment_1_Base_Code
             }
             string fileName = System.AppContext.BaseDirectory + "long_words.txt";
 
+            //error handling used below
             try
             {
                 // Performs a check to see if the file containing long words already exists, if it does it deletes it    
@@ -68,7 +70,6 @@ namespace CMP1903M_Assessment_1_Base_Code
                 words+= s;
             }
 
-            
             // Sentence checker
             int sentence = 0;
             var sentenceSeparater = new List<char> { '!', ',', '?', '.' };
@@ -80,6 +81,7 @@ namespace CMP1903M_Assessment_1_Base_Code
                 }
             }
             values[0] = sentence;
+
             // Vowel checker
             int vowel = 0;
             var vowelList = new List<char> {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'};
